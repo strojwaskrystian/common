@@ -1,6 +1,11 @@
 ﻿using Autofac;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace sk.common.IoCModul
+namespace sk.wpf.common.IoCModul
 {
     public class ModelLocator
     {
@@ -20,7 +25,7 @@ namespace sk.common.IoCModul
             }
         }
 
-        private ModelLocator()
+        public ModelLocator()
         {
             var builder = new ContainerBuilder();
 
@@ -45,13 +50,6 @@ namespace sk.common.IoCModul
             }
         }
 
-        public static bool IsRegistered<T>()
-        {
-            using (var scopemloc = ModelLocator.Instance.Container.BeginLifetimeScope())
-            {
-                return scopemloc.IsRegistered<T>();
-            }
-        }
 
         public static void Update<T>(T instance) where T : class
         {

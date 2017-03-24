@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>sk.wpf.common</RootNamespace>
     <AssemblyName>sk.wpf.common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.4.0\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight, Version=5.3.0.19026, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.3.0.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -44,6 +48,15 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.4.0\lib\net45\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.3.2.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.RollingFile, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.RollingFile.3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -83,6 +96,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Command\DelegateCommand.cs" />
+    <Compile Include="Command\DelegateCommandT.cs" />
+    <Compile Include="Command\SimpleCommand.cs" />
+    <Compile Include="Command\UiInvoke.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
     <Compile Include="Converter\RadioButtonCheckedConverter.cs" />
     <Compile Include="Converter\SizeDivison2.cs" />
@@ -90,24 +107,25 @@
     <Compile Include="Helper\AutoScrollToLastItemBehavior.cs" />
     <Compile Include="Helper\BindableAutoScrollTextBehavior.cs" />
     <Compile Include="Helper\BindableSelectedItemBehavior.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Helper\FileChooserEditorHelper.cs" />
     <Compile Include="Helper\FolderBrowserEditorHelper.cs" />
     <Compile Include="Helper\PasswordEditorXceedPropertyHelper.cs" />
     <Compile Include="Helper\PasswordHelper.cs" />
     <Compile Include="Helper\TreeViewHelper.cs" />
-    <Compile Include="Helper\UiInvoke.cs" />
+    <Compile Include="IoCModul\ModelLocator.cs" />
+    <Compile Include="Logger\LoggerFactory.cs" />
     <Compile Include="Message\CleanerMessage.cs" />
     <Compile Include="Model\ITreeLocationModel.cs" />
     <Compile Include="Model\TreeViewItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\CardProvider.cs" />
     <Compile Include="ViewModel\IItemsProvider.cs" />
     <Compile Include="ViewModel\VirtualizingCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Command\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
