@@ -41,5 +41,14 @@ namespace sk.common.ExceptionModel
 
             return false;
         }
+
+
+        public void throwExceptionIfError()
+        {
+            if (CheakMessageForError())
+            {
+                throw new ModelStatusException(this);
+            }
+        }
     }
 }

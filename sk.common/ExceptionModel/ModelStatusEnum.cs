@@ -18,5 +18,4 @@ namespace sk.common.ExceptionModel
         Warning,
         Info
     };
-
 }

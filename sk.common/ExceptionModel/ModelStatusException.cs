@@ -4,7 +4,7 @@ using System.Text;
 
 namespace sk.common.ExceptionModel
 {
-    public class ModelStatusException : Exception
+    public class ModelStatusException: Exception
     {
         public ResponseModelStatus ResponseModelMessage;
 
@@ -16,7 +16,7 @@ namespace sk.common.ExceptionModel
         {
         }
 
-        public ModelStatusException(string message, ResponseModelStatus responseModelStatus) : base(message)
+        public ModelStatusException(string message, ResponseModelStatus responseModelStatus) : base(message) 
         {
             ResponseModelMessage = responseModelStatus;
         }
@@ -24,17 +24,6 @@ namespace sk.common.ExceptionModel
         public ModelStatusException(ResponseModelStatus responseModelStatus)
         {
             ResponseModelMessage = responseModelStatus;
-
-        }
-        public string GetErrorMessageInLines()
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (var item in ResponseModelMessage.Messages)
-            {
-                sb.AppendLine(item.Key + " : " + item.Message);
-            };
-
-            return sb.ToString();
         }
     }
 }
