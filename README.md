@@ -1,15 +1,12 @@
 # sk.common
 
 sk.common
-
   - ResponseModelMessage
   - EnumHelper
   - loggerFacade
   - BaseRestApiClient
   
-sk.wpf.common
-
-  wpf helper:
+sk.wpf.common ( .net WPF helper)
   - wpf Behavior
   - wpf Command
   - wpf Logger
